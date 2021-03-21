@@ -55,8 +55,8 @@ SOFTWARE.
 
 ### parameters
 
-$inputPath = "D:\04_OneDrive\OneDrive - exneran.de\Dokumente\Arduino\_F5\TubeAmpDisplayESP32\txt" # folder with sorce files (*.txt)
-$outputPath = "D:\04_OneDrive\OneDrive - exneran.de\Dokumente\Arduino\_F5\TubeAmpDisplayESP32" # folder for destination files (*.cpp, *.h)
+$inputPath = "D:\TubeAmpDisplayESP32\txt" # folder with sorce files (*.txt)
+$outputPath = "D:\TubeAmpDisplayESP32" # folder for destination files (*.cpp, *.h)
 
 $itemsPerLine = 16 # items (16 bit = 2x 8 bit) per line, for better human readable output
 
