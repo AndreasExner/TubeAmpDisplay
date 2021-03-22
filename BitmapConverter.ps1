@@ -1,8 +1,8 @@
-﻿<#
+<#
 
 Bitmap Converter for the lcdgfx library
 
-Version: 0.1 2021-03-21
+Version: 0.2 2021-03-22
 Author: Andreas Exner
 
 
@@ -55,8 +55,8 @@ SOFTWARE.
 
 ### parameters
 
-$inputPath = "D:\TubeAmpDisplayESP32\txt" # folder with sorce files (*.txt)
-$outputPath = "D:\TubeAmpDisplayESP32" # folder for destination files (*.cpp, *.h)
+$inputPath = "D:\04_OneDrive\OneDrive - exneran.de\Dokumente\Arduino\_F5\TubeAmpDisplayESP32\txt" # folder with sorce files (*.txt)
+$outputPath = "D:\04_OneDrive\OneDrive - exneran.de\Dokumente\Arduino\_F5\TubeAmpDisplayESP32" # folder for destination files (*.cpp, *.h)
 
 $itemsPerLine = 16 # items (16 bit = 2x 8 bit) per line, for better human readable output
 
@@ -93,12 +93,12 @@ $files | ForEach-Object {
 
     ### write header file
     Write-Host ("Creating header file: " + $bitmapName + ".h")
-    $outputString = '#include "lcdgfx.h"' + ([Environment]::NewLine) + 'extern const uint8_t logo[' + ($contentArray.Length * 2) + '] PROGMEM;'
+    $outputString = '#include "lcdgfx.h"' + [Environment]::NewLine + [Environment]::NewLine + 'extern const uint8_t ' + $bitmapName + '[' + ($contentArray.Length * 2) + '] PROGMEM;'
     $dump = New-Item -Path $outputPath -Name ($bitmapName + ".h") -ItemType "file" -Value $outputString -Force
 
     ### write code file
     Write-Host ("Creating code file: " + $bitmapName + ".cpp")
-    $outputString = '#include "' + $bitmapName + '.h"' + ([Environment]::NewLine) + ([Environment]::NewLine) + 'const uint8_t logo[' + ($contentArray.Length * 2) + '] PROGMEM = {' + ([Environment]::NewLine)
+    $outputString = '#include "' + $bitmapName + '.h"' + [Environment]::NewLine + [Environment]::NewLine + 'const uint8_t ' + $bitmapName + '[' + ($contentArray.Length * 2) + '] PROGMEM = {' + ([Environment]::NewLine)
     $dump = New-Item -Path $outputPath -Name ($bitmapName + ".cpp") -ItemType "file" -Value $outputString -Force
 
     $outputFilePath = $outputPath + "\" + $bitmapName + ".cpp"
@@ -122,7 +122,7 @@ $files | ForEach-Object {
         
         $ByteCounter++
         if ($ByteCounter -lt $ArraySize) {$outputString += ", "} # add comma except the last byte
-        else {$outputString += ([Environment]::NewLine + '};')} # add closing bracket after the last byte
+        else {$outputString += [Environment]::NewLine + '};'} # add closing bracket after the last byte
 
         $LineCounter++
         if ($LineCounter -ge $itemsPerLine) { # break line every n-th byte
