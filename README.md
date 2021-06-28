@@ -33,7 +33,7 @@ How to use:
 - copy & paste the output into a .txt file inside the source folder
     - the file name prefix will be used for the destination file and the name of the pointer!
     - you can convert multiple files from the source folder at the same time
-    - existing files in the destionation folder are overwritten without warning!
+    - existing files in the destination folder are overwritten without warning!
 - check and choose the parameters of this script to fit your requirements
 - run the script (I recommend to use the ISE)
 - the resulting .h and .cpp files can be used like documented in the lcdgfx library.  
