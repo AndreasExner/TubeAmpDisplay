@@ -27,7 +27,7 @@ usefull to convert the data during runtime. This PS script does the job on every
 PC. For other plattforms please feel free to adopt the process. 
 
 How to use:
-- create a bitmap with a grafic tool of xour choice
+- create a bitmap with a grafic tool of your choice
 - use the converter http://javl.github.io/image2cpp/ to export the code
     - choose "plain bytes" and "Horizontal - 2 bytes per line(565) for the output
 - copy & paste the output into a .txt file inside the source folder
